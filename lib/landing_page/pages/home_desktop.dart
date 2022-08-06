@@ -141,7 +141,6 @@ class ColumnChildWidget extends StatelessWidget {
 }
 
 final BoxDecoration projectDesktopBoxStyle = BoxDecoration(
-
   borderRadius: BorderRadius.circular(0),
   border: new Border.all(
       color: Colors.black,
