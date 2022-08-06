@@ -1,10 +1,12 @@
 import 'package:dio/dio.dart';
-import 'package:portfolio/core/models/Profile.dart';
-import 'package:portfolio/core/models/ProfileData.dart';
+import 'package:portfolio/core/models/contacts.dart';
+import 'package:portfolio/core/models/profile.dart';
+import 'package:portfolio/core/models/profile_data.dart';
 import 'package:portfolio/core/models/experience.dart';
 import 'package:portfolio/core/models/project.dart';
 
 import '../const.dart';
+import '../models/cv.dart';
 
 class AirtableService {
 
@@ -74,6 +76,50 @@ class AirtableService {
     }
 
     return listOfProjects;
+  }
+
+  Future<List<Contacts>> getContactsList() async {
+
+    final List<Contacts> listOfContacts = [];
+    final response = await Dio().get(
+      '$dioAirtableUrl/$projectBase/$recordNameContacts',
+      queryParameters: {},
+      options: Options(
+        headers: {
+          'Authorization': 'Bearer $apiKey',
+          'Accept': 'Application/json',
+        },
+      ),
+    );
+
+    for (dynamic element in response.data['records']) {
+      var contactlement = Contacts.fromJson(element['fields']);
+      listOfContacts.add(contactlement);
+    }
+
+    return listOfContacts;
+  }
+
+  Future<List<CV>> getCVList() async {
+
+    final List<CV> listOfCV = [];
+    final response = await Dio().get(
+      '$dioAirtableUrl/$projectBase/$recordNameCV',
+      queryParameters: {},
+      options: Options(
+        headers: {
+          'Authorization': 'Bearer $apiKey',
+          'Accept': 'Application/json',
+        },
+      ),
+    );
+
+    for (dynamic element in response.data['records']) {
+      var cvItem = CV.fromJson(element['fields']);
+      listOfCV.add(cvItem);
+    }
+
+    return listOfCV;
   }
 
 }

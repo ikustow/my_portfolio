@@ -1,25 +1,34 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/core/models/Profile.dart';
+import 'package:portfolio/core/models/contacts.dart';
+import 'package:portfolio/core/models/profile.dart';
 import 'package:portfolio/core/models/experience.dart';
 import 'package:portfolio/core/models/project.dart';
 import 'package:portfolio/landing_page/responsive/responsive.dart';
 import 'package:portfolio/theme/colors.dart';
-import 'package:show_up_animation/show_up_animation.dart';
-import '../../theme/box_decoration.dart';
+import 'package:url_launcher/link.dart';
+import 'package:url_launcher/url_launcher.dart';
+import '../../core/models/cv.dart';
 import '../../theme/text_styles.dart';
 import '../widgets/desktop_exp_stack_widget.dart';
+import '../widgets/desktop_project_section.dart';
 import '../widgets/profile_widget.dart';
 
 class HomeDesktop extends StatelessWidget {
   final List<Experience> expList;
   final Profile profileInfo;
   final List<Project> projects;
+  final List<CV> cvList;
+  final List<Contacts> contacts;
 
-  const HomeDesktop(
-      {Key? key, required this.profileInfo, required this.expList, required this.projects})
-      : super(key: key);
+  const HomeDesktop({
+    Key? key,
+    required this.profileInfo,
+    required this.expList,
+    required this.projects,
+    required this.cvList,
+    required this.contacts,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,11 +56,23 @@ class HomeDesktop extends StatelessWidget {
             Container(
               height: 800,
               color: Colors.blue.shade200,
-              child: ProjectsSection(projects:projects),
+              child: ProjectsSection(projects: projects),
             ),
             Container(
-              height: 300,
-              color: Colors.white70,
+              height: 150,
+              color: Colors.white,
+              child: CVSection(
+                cvList: cvList,
+                type: TypeOfResponsive.Desktop,
+              ),
+            ),
+            Container(
+              height: 200,
+              color: Colors.white,
+              child: ContactSection(
+                contacts: contacts,
+                type: TypeOfResponsive.Desktop,
+              ),
             ),
           ],
         ),
@@ -82,33 +103,147 @@ class _ExperienceSectionState extends State<ExperienceSection> {
 
 class ProjectsSection extends StatelessWidget {
   final List<Project> projects;
+
   const ProjectsSection({Key? key, required this.projects}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return DesktopProjectSection(projects: projects,);
+    return DesktopProjectSection(
+      projects: projects,
+    );
   }
 }
 
-class DesktopProjectSection extends StatelessWidget {
-  final List<Project> projects;
-   DesktopProjectSection({Key? key, required this.projects}) : super(key: key);
+class ContactSection extends StatelessWidget {
+
+  final List<Contacts> contacts;
+  final TypeOfResponsive type;
+
+  const ContactSection(
+      {Key? key,
+      required this.type,
+
+      required this.contacts})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return DesktopContactsColumn(
+
+      contacts: contacts,
+    );
+  }
+}
+
+class CVSection extends StatelessWidget {
+  final List<CV> cvList;
+  final TypeOfResponsive type;
+
+  const CVSection(
+      {Key? key,
+        required this.type,
+        required this.cvList,
+      })
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "My Projects",
+      child: RowCV(
+        cvList: cvList,
+      ),
+    );
+  }
+}
+
+
+class RowCV extends StatelessWidget {
+  final List<CV> cvList;
+  const RowCV({Key? key, required this.cvList}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            "Load My CV",
             style: GoogleFonts.anton(
                 textStyle: AppTextStyles.nameDesktopTextStyle),
           ),
-          for (Project element in projects)
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ColumnChildWidget(element: element,),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+        //  crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            for (CV cvElement in cvList)
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: RowElementWidget(
+                  cvElement: cvElement,
+                ),
+              )
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class RowElementWidget extends StatelessWidget {
+  final CV cvElement;
+
+  const RowElementWidget({Key? key, required this.cvElement}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Link(
+      uri: Uri.parse(cvElement.attachments!.first.url.toString()),
+      target: LinkTarget.blank,
+      builder: (BuildContext ctx, FollowLink? openLink) {
+        return TextButton.icon(
+          onPressed: openLink,
+          label:  Text(
+            "CV ${cvElement.name.toString()}",
+            style: TextStyle(color: Colors.indigo),
+          ),
+          icon: const Icon(
+            Icons.download,
+            color: Colors.indigo,
+          ),
+        );
+      },
+    );
+  }
+}
+
+
+class DesktopContactsColumn extends StatelessWidget {
+
+  final List<Contacts> contacts;
+
+  const DesktopContactsColumn({
+    Key? key,
+
+    required this.contacts,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      //color: Colors.greenAccent.shade100,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          for (Contacts element in contacts)
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ColumnContactWidget(
+                  element: element,
+                ),
+              ),
             )
         ],
       ),
@@ -116,46 +251,18 @@ class DesktopProjectSection extends StatelessWidget {
   }
 }
 
-class ColumnChildWidget extends StatelessWidget {
-  final Project element;
 
-  const ColumnChildWidget({Key? key, required this.element}) : super(key: key);
+class ColumnContactWidget extends StatelessWidget {
+  final Contacts element;
+
+  const ColumnContactWidget({Key? key, required this.element})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-      decoration: projectDesktopBoxStyle,
-      width: 500,
-      height: 200,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(element.name.toString()),
-            Text(element.desc.toString()),
-            Text(element.link.toString()),
-          ],
-
-      ),
+    return Text(
+      "${element.name.toString()}: ${element.link.toString()}",
+      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
     );
   }
 }
-
-final BoxDecoration projectDesktopBoxStyle = BoxDecoration(
-  borderRadius: BorderRadius.circular(0),
-  border: new Border.all(
-      color: Colors.black,
-      width: 2.0,
-      style: BorderStyle.solid
-  ),
-  boxShadow: [
-    BoxShadow(
-      color:  Colors.orange.shade400,
-      spreadRadius: 5,
-      //blurRadius: 5,
-      offset: new Offset(15.0, 15.0),
-    ),
-  ],
-  color: Colors.orange.shade400,
-
-
-);

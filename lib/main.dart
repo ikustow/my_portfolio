@@ -36,11 +36,9 @@ class StartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-      PageDataBloc(
+      create: (context) => PageDataBloc(
         RepositoryProvider.of<AirtableService>(context),
-      )
-        ..add(InitialLoadEvent()),
+      )..add(InitialLoadEvent()),
       child: BlocBuilder<PageDataBloc, PageDataState>(
         builder: (context, state) {
           if (state is PageDataInitial) {
@@ -51,7 +49,13 @@ class StartPage extends StatelessWidget {
           if (state is PageDataLoad) {
             return ResponsiveLayout(
               mobileAppBody: HomeMobile(),
-              desktopBody: HomeDesktop(profileInfo: state.profileInfo, expList: state.expList, projects: state.projects,),
+              desktopBody: HomeDesktop(
+                profileInfo: state.profileInfo,
+                expList: state.expList,
+                projects: state.projects,
+                contacts: state.contacts,
+                cvList: state.cvList,
+              ),
               tabletBody: HomeTablet(),
             );
           }

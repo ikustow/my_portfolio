@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/core/models/Profile.dart';
+import 'package:portfolio/core/models/profile.dart';
 import '../../theme/box_decoration.dart';
 import '../../theme/text_styles.dart';
 import '../responsive/responsive.dart';

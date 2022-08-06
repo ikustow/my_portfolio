@@ -43,5 +43,21 @@ abstract class AppTextStyles {
 
 // Projects section
 
+  static const projectDescDesktopTextStyle = TextStyle(
+    color: Colors.black,
+    fontWeight: FontWeight.normal,
+    fontSize: 20,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 1,
+  );
+
+  static const projectTitleDesktopTextStyle = TextStyle(
+    color: Colors.black,
+    fontWeight: FontWeight.bold,
+    fontSize: 24,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 2,
+  );
+
 //Contacts section
 }

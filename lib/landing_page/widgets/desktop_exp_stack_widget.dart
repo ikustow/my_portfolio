@@ -15,7 +15,7 @@ class DesktopExpStackWidget extends StatelessWidget {
     return Stack(
       children: [
         Padding(
-          padding: const EdgeInsets.only(top: 36.0),
+          padding: const EdgeInsets.only(top: 36.0, ),
           child: Text(
             "My Experience",
             style: GoogleFonts.anton(

@@ -63,5 +63,20 @@ abstract class AppBoxStyles {
   }
   // Projects section
 
+  static final BoxDecoration projectDesktopBoxStyle = BoxDecoration(
+    borderRadius: BorderRadius.circular(0),
+    border:
+    new Border.all(color: Colors.black, width: 2.0, style: BorderStyle.solid),
+    boxShadow: [
+      BoxShadow(
+        color: Colors.black,
+        spreadRadius: 0.5,
+        //blurRadius: 5,
+        offset: new Offset(4.0, 4.0),
+      ),
+    ],
+    color: Colors.orange.shade200,
+  );
+
 //Contacts section
 }
