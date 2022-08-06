@@ -41,6 +41,7 @@ abstract class SectionHeightValues {
   static const double mobileProfileSectionHeight = 200;
 
   // Experience section
+  static const double desktopExperienceSectionHeight = 950;
 
 // Projects section
 

@@ -29,6 +29,7 @@ environment:
 dependencies:
   flutter_bloc: ^8.0.1
   google_fonts: ^3.0.1
+  show_up_animation: ^2.0.0
   equatable: ^2.0.3
   cached_network_image: ^3.2.1
   dio: ^4.0.6
@@ -63,9 +64,11 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - star_purple.png
+    - star_indigo.png
+    - lines_1.png
+    - lines_2.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

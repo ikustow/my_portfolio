@@ -27,7 +27,41 @@ abstract class AppBoxStyles {
 
 // Experience section
 
-// Projects section
+
+  static BoxDecoration getBoxDecoration (int index){
+
+    final listOfColors = [
+      Colors.orange.shade200,
+      Colors.green.shade300,
+      Colors.pink.shade200,
+      Colors.indigo.shade200,
+      Colors.blue.shade400,
+      Colors.blue.shade400,
+    ];
+
+
+    BoxDecoration mainExpDesktopBoxStyle = BoxDecoration(
+      borderRadius: BorderRadius.circular(0),
+      border:
+      new Border.all(color: Colors.black, width: 1.0, style: BorderStyle.solid),
+      boxShadow: [
+        BoxShadow(
+          color:  Colors.black,
+          spreadRadius: 1,
+          //blurRadius: 5,
+          offset: Offset(4.0, 4.0),
+        ),
+      ],
+      color: listOfColors[index-1],
+    );
+
+
+
+
+    return mainExpDesktopBoxStyle;
+
+  }
+  // Projects section
 
 //Contacts section
 }

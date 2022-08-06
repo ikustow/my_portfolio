@@ -11,8 +11,10 @@ class PageDataInitial extends PageDataState {
 
 class PageDataLoad extends PageDataState {
   final Profile profileInfo;
+  final List<Experience> expList;
+  final List<Project> projects;
 
-  PageDataLoad({required this.profileInfo});
+  PageDataLoad({required this.projects, required this.expList, required this.profileInfo});
 
   @override
   List<Object> get props => [];

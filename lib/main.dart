@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/core/services/airtableService.dart';
+import 'package:portfolio/core/services/airtable_service.dart';
 import 'package:portfolio/landing_page/bloc/page_data_bloc.dart';
 import 'package:portfolio/landing_page/responsive/responsive.dart';
 import 'package:portfolio/landing_page/pages/home_desktop.dart';
@@ -51,7 +51,7 @@ class StartPage extends StatelessWidget {
           if (state is PageDataLoad) {
             return ResponsiveLayout(
               mobileAppBody: HomeMobile(),
-              desktopBody: HomeDesktop(profileInfo: state.profileInfo,),
+              desktopBody: HomeDesktop(profileInfo: state.profileInfo, expList: state.expList, projects: state.projects,),
               tabletBody: HomeTablet(),
             );
           }
