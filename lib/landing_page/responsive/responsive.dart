@@ -43,7 +43,12 @@ abstract class SectionHeightValues {
   // Experience section
   static const double desktopExperienceSectionHeight = 950;
 
-// Projects section
+  // Projects section
+  static const double desktopProjectSectionHeight = 800;
 
-//Contacts section
+  //CV section
+  static const double desktopCVSectionHeight = 150;
+
+  //Contacts section
+  static const double desktopContactsSectionHeight = 200;
 }

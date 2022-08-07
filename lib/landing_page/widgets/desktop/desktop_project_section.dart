@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/link.dart';
 
-import '../../core/models/project.dart';
-import '../../theme/box_decoration.dart';
-import '../../theme/text_styles.dart';
+import '../../../core/models/project.dart';
+import '../../../core/strings.dart';
+import '../../../theme/box_decoration.dart';
+import '../../../theme/text_styles.dart';
 
 class DesktopProjectSection extends StatelessWidget {
   final List<Project> projects;
 
-  DesktopProjectSection({Key? key, required this.projects}) : super(key: key);
+  const DesktopProjectSection({Key? key, required this.projects}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +75,7 @@ class ColumnChildWidget extends StatelessWidget {
                 return TextButton.icon(
 
                   onPressed: openLink,
-                  label: const Text('Source code', style: TextStyle(color: Colors.indigo),),
+                  label:  const Text(sourceCode, style: TextStyle(color: Colors.indigo),),
                   icon: const Icon(Icons.read_more, color: Colors.indigo,),
                 );
               },

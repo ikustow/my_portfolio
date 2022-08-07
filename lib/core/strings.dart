@@ -1,0 +1,10 @@
+const loadCV = "Load My CV";
+const cvString = "CV";
+const myExp = "My Experience";
+const position = "Position";
+const location = "Location";
+const sourceCode = "Source code";
+const myName = "My name ";
+const hiString = "Hi!";
+const iamString = "I am ";
+const myBackground = "My background";

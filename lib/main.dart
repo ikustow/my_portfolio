@@ -5,7 +5,7 @@ import 'package:portfolio/landing_page/bloc/page_data_bloc.dart';
 import 'package:portfolio/landing_page/responsive/responsive.dart';
 import 'package:portfolio/landing_page/pages/home_desktop.dart';
 import 'package:portfolio/landing_page/pages/home_mobile.dart';
-import 'package:portfolio/landing_page/pages/home_tablet.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -42,13 +42,19 @@ class StartPage extends StatelessWidget {
       child: BlocBuilder<PageDataBloc, PageDataState>(
         builder: (context, state) {
           if (state is PageDataInitial) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }
           if (state is PageDataLoad) {
             return ResponsiveLayout(
-              mobileAppBody: HomeMobile(),
+              mobileAppBody: HomeMobile(
+                profileInfo: state.profileInfo,
+                expList: state.expList,
+                projects: state.projects,
+                contacts: state.contacts,
+                cvList: state.cvList,
+              ),
               desktopBody: HomeDesktop(
                 profileInfo: state.profileInfo,
                 expList: state.expList,
@@ -56,7 +62,13 @@ class StartPage extends StatelessWidget {
                 contacts: state.contacts,
                 cvList: state.cvList,
               ),
-              tabletBody: HomeTablet(),
+              tabletBody: HomeMobile(
+                profileInfo: state.profileInfo,
+                expList: state.expList,
+                projects: state.projects,
+                contacts: state.contacts,
+                cvList: state.cvList,
+              ),
             );
           }
 

@@ -12,6 +12,14 @@ abstract class AppTextStyles {
     letterSpacing: 3,
   );
 
+  static const TextStyle mainRichMobileTextStyle = TextStyle(
+    color: Colors.black,
+    fontWeight: FontWeight.normal,
+    fontSize: 18,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 3,
+  );
+
   static const TextStyle nameDesktopTextStyle = TextStyle(
     color: Colors.black,
     fontWeight: FontWeight.normal,
