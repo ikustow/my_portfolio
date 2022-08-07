@@ -43,6 +43,15 @@ class DesktopExpStackWidget extends StatelessWidget {
           ),
         ),
         Positioned(
+          top: 300,
+          right: 150,
+          child: Image.asset(
+            'assets/star_pink.png',
+            width: 100,
+            height: 100,
+          ),
+        ),
+        Positioned(
           bottom: 150,
           left: 100,
           child: Image.asset(

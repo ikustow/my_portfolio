@@ -42,10 +42,16 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.normal,
     fontSize: 16,
     fontStyle: FontStyle.normal,
-    height: 1.5,
+      height: 1.5,
   );
 
+  static const TextStyle CVDesktopTextStyle = TextStyle(
+    color: Colors.black87,
+    fontWeight: FontWeight.normal,
+    fontSize: 18,
+    fontStyle: FontStyle.normal,
 
+  );
 
 // Experience section
 
@@ -64,7 +70,7 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.bold,
     fontSize: 24,
     fontStyle: FontStyle.normal,
-    letterSpacing: 2,
+    letterSpacing: 1,
   );
 
 //Contacts section

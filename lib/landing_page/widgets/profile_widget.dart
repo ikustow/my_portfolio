@@ -35,9 +35,7 @@ class ProfileColumnWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final nameString = '$myName${profileInfo.name} ${profileInfo.surname}';
-    final positionString = profileInfo.position;
-    final welcomeTextString = profileInfo.welcomeText;
+
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -94,7 +92,7 @@ class ProfileRowWidget extends StatelessWidget {
           Flexible(
             flex: 1,
             child: RichText(
-              overflow: TextOverflow.ellipsis,
+              overflow: TextOverflow.fade,
               maxLines: 20,
               textDirection: TextDirection.ltr,
               text: TextSpan(
@@ -109,8 +107,8 @@ class ProfileRowWidget extends StatelessWidget {
                   const TextSpan(text: "\n"),
                   const TextSpan(text: myBackground),
                   const TextSpan(text: "\n"),
-                  const TextSpan(text: "\n"),
-                  TextSpan(text: welcomeTextString,style: GoogleFonts.fjallaOne(textStyle: AppTextStyles.welcomeDesktopTextStyle),),
+                  const TextSpan(text: ""),
+                  TextSpan(text: welcomeTextString,style: GoogleFonts.anton(textStyle: AppTextStyles.welcomeDesktopTextStyle),),
                 ],
                 //style:
               ),),

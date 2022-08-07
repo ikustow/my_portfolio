@@ -55,7 +55,7 @@ class ColumnChildWidget extends StatelessWidget {
             padding: const EdgeInsets.only(left: 16.0, top: 8),
             child: Text(
               element.name.toString(),
-              style: AppTextStyles.projectTitleDesktopTextStyle,
+              style: GoogleFonts.anton(textStyle: AppTextStyles.projectTitleDesktopTextStyle),
             ),
           ),
           Padding(

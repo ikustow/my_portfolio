@@ -67,6 +67,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - star_purple.png
+    - star_pink.png
     - star_indigo.png
     - lines_1.png
     - lines_2.png

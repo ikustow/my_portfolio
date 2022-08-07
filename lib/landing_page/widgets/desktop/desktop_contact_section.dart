@@ -1,6 +1,9 @@
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/models/contacts.dart';
+
+import '../../../theme/text_styles.dart';
 
 class DesktopContactsColumn extends StatelessWidget {
 
@@ -45,7 +48,7 @@ class ColumnContactWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       "${element.name.toString()}: ${element.link.toString()}",
-      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+      style: GoogleFonts.anton(textStyle: AppTextStyles.CVDesktopTextStyle),
     );
   }
 }
