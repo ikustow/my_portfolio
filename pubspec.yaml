@@ -71,6 +71,7 @@ flutter:
     - star_indigo.png
     - lines_1.png
     - lines_2.png
+    - avatar.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

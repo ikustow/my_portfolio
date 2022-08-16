@@ -17,22 +17,19 @@ class DesktopContactsColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      //color: Colors.greenAccent.shade100,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          for (Contacts element in contacts)
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ColumnContactWidget(
-                  element: element,
-                ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        for (Contacts element in contacts)
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ColumnContactWidget(
+                element: element,
               ),
-            )
-        ],
-      ),
+            ),
+          )
+      ],
     );
   }
 }

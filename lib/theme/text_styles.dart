@@ -54,6 +54,15 @@ abstract class AppTextStyles {
   );
 
 // Experience section
+  static const TextStyle titleMobileTextStyle = TextStyle(
+    color: Colors.black,
+    fontWeight: FontWeight.normal,
+    fontSize: 30,
+    fontStyle: FontStyle.normal ,
+    // fontFamily:
+    letterSpacing: 3,
+  );
+
 
 // Projects section
 

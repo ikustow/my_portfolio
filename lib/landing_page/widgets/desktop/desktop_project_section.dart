@@ -17,7 +17,7 @@ class DesktopProjectSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             "My Projects",
@@ -47,7 +47,7 @@ class ColumnChildWidget extends StatelessWidget {
     return Container(
       decoration: AppBoxStyles.projectDesktopBoxStyle,
       width: 400,
-      height: 150,
+      height: 165,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -8,7 +8,7 @@ import '../../core/models/cv.dart';
 import '../../core/models/project.dart';
 import 'desktop/cv_section_desktop.dart';
 import 'desktop/desktop_contact_section.dart';
-import 'desktop/desktop_exp_stack_widget.dart';
+import 'desktop/desktop_exp_widget.dart';
 import 'desktop/desktop_project_section.dart';
 
 class ExperienceSection extends StatefulWidget {
@@ -26,7 +26,7 @@ class _ExperienceSectionState extends State<ExperienceSection> {
   @override
   Widget build(BuildContext context) {
     if (widget.type == TypeOfResponsive.Desktop){
-      return DesktopExpStackWidget(
+      return DesktopExperienceWidget(
         expList: widget.expList,
       );
     }
@@ -35,7 +35,7 @@ class _ExperienceSectionState extends State<ExperienceSection> {
         expList: widget.expList,
       );
     }
-    return DesktopExpStackWidget(
+    return DesktopExperienceWidget(
       expList: widget.expList,
     );
   }

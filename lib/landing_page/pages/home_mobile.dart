@@ -40,7 +40,7 @@ class HomeMobile extends StatelessWidget {
               ),
             ),
             Container(
-              height: SectionHeightValues.desktopExperienceSectionHeight,
+              height: SectionHeightValues.mobileExperienceSectionHeight,
               width: MediaQuery.of(context).size.width / 1.5,
               // color: Colors.white70,
               child: ExperienceSection(
@@ -54,7 +54,7 @@ class HomeMobile extends StatelessWidget {
               child: ProjectsSection(projects: projects),
             ),
             Container(
-              height: SectionHeightValues.desktopCVSectionHeight,
+              height: SectionHeightValues.mobileCVSectionHeight,
               color: Colors.white,
               child: CVSection(
                 cvList: cvList,
