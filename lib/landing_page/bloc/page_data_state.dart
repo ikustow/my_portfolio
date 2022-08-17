@@ -16,7 +16,7 @@ class PageDataLoad extends PageDataState {
   final List<CV> cvList;
   final List<Contacts> contacts;
 
-  PageDataLoad( {required this.cvList, required this.contacts,required this.projects, required this.expList, required this.profileInfo});
+  const PageDataLoad( {required this.cvList, required this.contacts,required this.projects, required this.expList, required this.profileInfo});
 
   @override
   List<Object> get props => [];

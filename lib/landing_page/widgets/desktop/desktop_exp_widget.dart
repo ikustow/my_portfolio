@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:show_up_animation/show_up_animation.dart';
+
 import '../../../core/models/experience.dart';
 import '../../../core/strings.dart';
 import '../../../theme/box_decoration.dart';
@@ -16,6 +16,7 @@ class DesktopExperienceWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    expList.sort((a, b) => a.id!.compareTo(b.id!));
     return Center(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,

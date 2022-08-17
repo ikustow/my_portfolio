@@ -6,7 +6,7 @@ class ResponsiveLayout extends StatelessWidget {
   final Widget desktopBody;
   final Widget tabletBody;
 
-  ResponsiveLayout({
+  const ResponsiveLayout({
     required this.desktopBody,
     required this.tabletBody,
     required this.mobileAppBody,
@@ -36,7 +36,7 @@ enum TypeOfResponsive {
 
 abstract class SectionHeightValues {
   // Profile section
-  static const double desktopProfileSectionHeight = 500;
+  static const double desktopProfileSectionHeight = 600;
   static const double tabletProfileSectionHeight = 400;
   static const double mobileProfileSectionHeight = 200;
 

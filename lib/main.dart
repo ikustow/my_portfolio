@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       ),
       home: RepositoryProvider(
         create: (context) => AirtableService(),
-        child: StartPage(),
+        child: const StartPage(),
       ),
     );
   }
@@ -72,7 +72,7 @@ class StartPage extends StatelessWidget {
             );
           }
 
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         },
       ),
     );

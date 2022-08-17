@@ -49,7 +49,7 @@ class ProfileColumnWidget extends StatelessWidget {
             child: Container(
               height: SectionHeightValues.desktopProfileSectionHeight/3,
               decoration: AppBoxStyles.mainAvatarDesktopBoxStyle,
-              child: Image.network(profileInfo.avatarURL, fit: BoxFit.cover),
+              child: Image.asset('avatar.jpeg', fit: BoxFit.cover),
             ),),
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
@@ -84,42 +84,40 @@ class ProfileRowWidget extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.only(left: 128.0, top: 96.0, right: 128.0),
-      child: Expanded(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Flexible(
-              flex: 1,
-              child: RichText(
-                overflow: TextOverflow.fade,
-                maxLines: 20,
-                textDirection: TextDirection.ltr,
-                text: TextSpan(
-                  text: hiString,
-                  style: GoogleFonts.anton(textStyle:AppTextStyles.mainRichDesktopTextStyle),
-                  children: [
-                    const TextSpan(text: "\n"),
-                    TextSpan(text: nameString,style: GoogleFonts.anton(textStyle: AppTextStyles.nameDesktopTextStyle)),
-                    const TextSpan(text: "\n"),
-                    const TextSpan(text: iamString),
-                    TextSpan(text: positionString,style: GoogleFonts.teko(textStyle: AppTextStyles.positionDesktopTextStyle)),
-                    const TextSpan(text: "\n"),
-                    const TextSpan(text: myBackground),
-                    const TextSpan(text: "\n"),
-                    const TextSpan(text: ""),
-                    TextSpan(text: welcomeTextString,style: GoogleFonts.anton(textStyle: AppTextStyles.welcomeDesktopTextStyle),),
-                  ],
-                  //style:
-                ),),
-            ),
-            Container(
-              height: SectionHeightValues.desktopProfileSectionHeight/2,
-              decoration: AppBoxStyles.mainAvatarDesktopBoxStyle,
-              child: Image.asset('avatar.jpeg', fit: BoxFit.cover),
-            ),
-          ],
-        ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Flexible(
+            flex: 1,
+            child: RichText(
+              overflow: TextOverflow.fade,
+              maxLines: 20,
+              textDirection: TextDirection.ltr,
+              text: TextSpan(
+                text: hiString,
+                style: GoogleFonts.anton(textStyle:AppTextStyles.mainRichDesktopTextStyle),
+                children: [
+                  const TextSpan(text: "\n"),
+                  TextSpan(text: nameString,style: GoogleFonts.anton(textStyle: AppTextStyles.nameDesktopTextStyle)),
+                  const TextSpan(text: "\n"),
+                  const TextSpan(text: iamString),
+                  TextSpan(text: positionString,style: GoogleFonts.teko(textStyle: AppTextStyles.positionDesktopTextStyle)),
+                  const TextSpan(text: "\n"),
+                  const TextSpan(text: myBackground),
+                  const TextSpan(text: "\n"),
+                  const TextSpan(text: ""),
+                  TextSpan(text: welcomeTextString,style: GoogleFonts.anton(textStyle: AppTextStyles.welcomeDesktopTextStyle),),
+                ],
+                //style:
+              ),),
+          ),
+          Container(
+            height: SectionHeightValues.desktopProfileSectionHeight/2,
+            decoration: AppBoxStyles.mainAvatarDesktopBoxStyle,
+            child: Image.asset('avatar.jpeg', fit: BoxFit.cover),
+          ),
+        ],
       ),
     );
   }
